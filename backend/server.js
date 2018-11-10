@@ -10,6 +10,9 @@ const server = express();
 //Bringin Mongoose Database
 const mongoose = require("mongoose");
 
+//Bringing the route
+const routes = require("./routes");
+
 //Connect Database
 mongoose
   .connect(db)
@@ -27,6 +30,12 @@ server.use(express.json());
 server.use(bodyparser.json()); //express.jason
 
 server.use(express.json());
+
+server.use(passport.initialize());
+server.use(passport.session());
+
+//Connect the route to the server
+server.use("/", routes);
 
 server.use(require("body-parser").text());
 
