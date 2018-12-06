@@ -85,3 +85,23 @@ const register = (request, response) => {
         });
       });
   };
+
+  const deleteUserById = (request, response) => {
+    const { _id } = request.body;
+    User.findByIdAndRemove({ _id: request.params._id })
+      .then(function(user) {
+        response.status(200).json(user);
+      })
+      .catch(function(error) {
+        response.status(500).json({
+          error: "The user could not be removed.",
+        });
+      });
+  };
+
+  module.exports = {
+    register,
+    login,
+    getUserById,
+    deleteUserById,   
+  };
