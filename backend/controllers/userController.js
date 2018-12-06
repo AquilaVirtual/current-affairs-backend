@@ -118,8 +118,6 @@ const register = (request, response) => {
         response.status(500).json(`message: Error username or email: ${error}`);
       });
   };
-  
-
   module.exports = {
     register,
     login,
