@@ -13,6 +13,9 @@ const mongoose = require("mongoose");
 //Bringing the route
 const routes = require("./routes");
 
+//Database name
+const db = "mongodb://aquila:currentnews123@ds048878.mlab.com:48878/current-affairs";
+
 //Connect Database
 mongoose
   .connect(db)
@@ -27,12 +30,7 @@ server.use(cors());
 
 //Enable to parse Json object
 server.use(express.json());
-server.use(bodyparser.json()); //express.jason
-
-server.use(express.json());
-
-server.use(passport.initialize());
-server.use(passport.session());
+server.use(bodyparser.json()); //express.jason;
 
 //Connect the route to the server
 server.use("/", routes);
