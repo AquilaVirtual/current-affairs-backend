@@ -99,9 +99,31 @@ const register = (request, response) => {
       });
   };
 
+  const updateUser = (request, response) => {
+    const { _id, username, email } = request.body;
+    User.findById({ _id: request.params.id })
+      .then(function(user) {
+        if (user) {
+          (user.username = username), (user.email = email);
+          User.findByIdAndUpdate({ _id: request.params.id }, user)
+            .then(user => {
+              response.status(200).json(user);
+            })
+            .catch(err => {
+              response.status(500).json(`message: Error username or email: ${err}`);
+            });
+        }
+      })
+      .catch(function(error) {
+        response.status(500).json(`message: Error username or email: ${error}`);
+      });
+  };
+  
+
   module.exports = {
     register,
     login,
     getUserById,
-    deleteUserById,   
+    deleteUserById,  
+    updateUser, 
   };
