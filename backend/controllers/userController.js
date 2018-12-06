@@ -73,3 +73,15 @@ const register = (request, response) => {
         });
       });
   };
+
+  const getUserById = (request, response) => {
+    User.findById({ _id: request.params.id })
+      .then(function(user) {
+        response.status(200).json(user);
+      })
+      .catch(function(error) {
+        response.status(500).json({
+          error: "The user could not be retrieved.",
+        });
+      });
+  };
