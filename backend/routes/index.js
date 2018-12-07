@@ -13,22 +13,21 @@ mongoose.connect(
 
 router.post("/api/user/register", (request, response) => {
     UserController.register(request, response);
-  });
-  
+  });  
   router.post("/api/user/login", (request, response) => {
     UserController.login(request, response);
   });
-
   router.put("/api/user/update/:id", function(request, response) {
     UserController.updateUser(request, response);
-  });
-  
+  });  
   router.get("/api/user/:id", function(req, res) {
     UserController.getUserById(req, res);
   });
-    
   router.delete("/api/user/:id", function(req, res) {
     UserController.deleteUserById(req, res);
   });
+  router.get("/api/user/", function(req, res) {
+  UserController.getAllUsers(req, res);
+});
 
   module.exports = router;
