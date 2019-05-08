@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
-  },
+    "start": "nodemon server.js" 
+  }, 
   "engines": {
-    "node": "8.11.1",
-    "yarn": "1.5.1"
+    "node": "10.15.3",
+    "yarn": "1.15.2"
   },
   "repository": "https://github.com/AquilaVirtual/current-affairs-backend",
   "author": "David Loveday",
