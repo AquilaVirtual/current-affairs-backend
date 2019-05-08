@@ -11,16 +11,16 @@ const server = express();
 const mongoose = require("mongoose");
 
 //Bringing the route
-const routes = require("./routes");
+//const routes = require("./routes");
 
 //Database name
-const db = "mongodb://aquila:currentnews123@ds048878.mlab.com:48878/current-affairs";
+// const db = "mongodb://aquila:currentnews123@ds048878.mlab.com:48878/current-affairs";
 
 //Connect Database
-mongoose
-  .connect(db)
-  .then(() => console.log("\n=== connected to mongo ===\n"))
-  .catch(err => console.log("database is not connected"));
+// mongoose
+//   .connect(db)
+//   .then(() => console.log("\n=== connected to mongo ===\n"))
+//   .catch(err => console.log("database is not connected"));
 
 //Security
 server.use(helmet());
@@ -33,7 +33,7 @@ server.use(express.json());
 server.use(bodyparser.json()); //express.jason;
 
 //Connect the route to the server
-server.use("/", routes);
+//server.use("/", routes);
 
 server.use(require("body-parser").text());
 
